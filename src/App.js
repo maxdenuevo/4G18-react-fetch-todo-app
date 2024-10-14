@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
 
-
-
-
-
 let todos = ["Make the bed", "Wash my hands", "Eat", "Walk the dog"];
 
 export function App() {
@@ -12,7 +8,7 @@ export function App() {
 	const [addToArray, setAddToArray] = useState(todos);
 
 	const addTodo = e => {
-		if (e.key == "Enter") {
+		if (e.key === "Enter") {
 			if (inputValue !== "") {
 				const todosNew = addToArray.concat(inputValue);
 				setAddToArray(todosNew);
@@ -36,15 +32,15 @@ export function App() {
 								{item}
 								<button
 									onClick={() => removeTodo(item)}
-									className="btn btn-link">
-									<i className="fas fa-times"></i>
+									className="btn btn-link p-0">
+									<i className="bi bi-x-lg"></i>
 								</button>
 							</li>
 						))}
 					</ul>
 					<hr className="solid" />
 					<div className="float-left text-muted mt-2">
-						{addToArray.length} item left
+						{addToArray.length} item{addToArray.length !== 1 ? 's' : ''} left
 					</div>
 				</div>
 			);
@@ -77,6 +73,5 @@ export function App() {
 		</div>
 	);
 }
-
 
 export default App;
