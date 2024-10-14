@@ -1,38 +1,55 @@
-.App {
-  text-align: center;
+
+@import url('https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css');
+
+body {
+  background-color: #f8f9fa;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+  max-width: 600px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h1 {
+  color: #007bff;
+  margin-bottom: 30px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.card {
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.App-link {
-  color: #61dafb;
+.card-body {
+  padding: 30px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.form-control {
+  border-radius: 20px;
+}
+
+.list-group-item {
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+}
+
+.btn-link {
+  color: #dc3545;
+}
+
+.btn-link:hover {
+  color: #c82333;
+  text-decoration: none;
+}
+
+.fas {
+  font-size: 1.2rem;
+}
+
+hr.solid {
+  border-top: 1px solid #dee2e6;
+}
+
+.float-left {
+  float: left !important;
 }
