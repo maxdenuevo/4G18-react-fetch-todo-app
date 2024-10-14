@@ -1,15 +1,8 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
 
-reportWebVitals(sendToVercelAnalytics);
 
 
 let todos = ["Make the bed", "Wash my hands", "Eat", "Walk the dog"];
