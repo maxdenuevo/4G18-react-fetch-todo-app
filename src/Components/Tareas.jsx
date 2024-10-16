@@ -21,7 +21,7 @@ const Tareas = () => {
       if (!resp.ok) throw new Error('Error al obtener las tareas: ' + resp.statusText);
       return resp.json();
     })
-    .then(data => {
+    .then(data => { 
       setTareas(Array.isArray(data.todos) ? data.todos : []);
     })
     .catch(error => {
