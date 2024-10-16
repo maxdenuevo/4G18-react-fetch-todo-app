@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Tareas from './Tareas';
+import Tareas from './components/Tareas.jsx';
 
 function App() {
   return (
