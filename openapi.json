@@ -1,0 +1,524 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+      "title": "Todo API",
+      "description": "An API for storing Todo Lists.",
+      "contact": {
+        "email": "info@4geeks.com"
+      },
+      "version": "0.1.0"
+    },
+    "servers": [
+      {
+        "url": "/todo"
+      }
+    ],
+    "paths": {
+      "/users/{user_name}": {
+        "post": {
+          "tags": [
+            "User operations"
+          ],
+          "summary": "Create User.",
+          "description": "Creates a new User.",
+          "operationId": "create_user_users__user_name__post",
+          "parameters": [
+            {
+              "name": "user_name",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "title": "username"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Successful Response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/TodoUserRead"
+                  }
+                }
+              }
+            },
+            "422": {
+              "description": "Validation Error",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/HTTPValidationError"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "User operations"
+          ],
+          "summary": "Delete User.",
+          "description": "Deletes a User from the database.",
+          "operationId": "delete_user_users__user_name__delete",
+          "parameters": [
+            {
+              "name": "user_name",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "title": "username"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful Response",
+              "content": {
+                "application/json": {
+                  "schema": {
+  
+                  }
+                }
+              }
+            },
+            "422": {
+              "description": "Validation Error",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/HTTPValidationError"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "get": {
+          "tags": [
+            "User operations"
+          ],
+          "summary": "Read User",
+          "operationId": "read_user_users__user_name__get",
+          "parameters": [
+            {
+              "name": "user_name",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "title": "username"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful Response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/TodoUserReadWithItems"
+                  }
+                }
+              }
+            },
+            "422": {
+              "description": "Validation Error",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/HTTPValidationError"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/users": {
+        "get": {
+          "tags": [
+            "User operations"
+          ],
+          "summary": "Read Users",
+          "operationId": "read_users_users_get",
+          "parameters": [
+            {
+              "name": "offset",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "integer",
+                "default": 0,
+                "title": "Offset"
+              }
+            },
+            {
+              "name": "limit",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "integer",
+                "maximum": 100,
+                "default": 100,
+                "title": "Limit"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful Response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/TodoUserList"
+                  }
+                }
+              }
+            },
+            "422": {
+              "description": "Validation Error",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/HTTPValidationError"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/todos/{user_name}": {
+        "post": {
+          "tags": [
+            "Todo operations"
+          ],
+          "summary": "Create User Todo",
+          "operationId": "create_user_todo_todos__user_name__post",
+          "parameters": [
+            {
+              "name": "user_name",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "title": "username"
+              }
+            }
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TodoItemCreate"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "Successful Response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/TodoItemRead"
+                  }
+                }
+              }
+            },
+            "422": {
+              "description": "Validation Error",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/HTTPValidationError"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/todos/{todo_id}": {
+        "put": {
+          "tags": [
+            "Todo operations"
+          ],
+          "summary": "Update User Todo",
+          "operationId": "update_user_todo_todos__todo_id__put",
+          "parameters": [
+            {
+              "name": "todo_id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "title": "username"
+              }
+            }
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TodoItemUpdate"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Successful Response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/TodoItemRead"
+                  }
+                }
+              }
+            },
+            "422": {
+              "description": "Validation Error",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/HTTPValidationError"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "Todo operations"
+          ],
+          "summary": "Delete User Todo",
+          "operationId": "delete_user_todo_todos__todo_id__delete",
+          "parameters": [
+            {
+              "name": "todo_id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "title": "todo id"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful Response",
+              "content": {
+                "application/json": {
+                  "schema": {
+  
+                  }
+                }
+              }
+            },
+            "422": {
+              "description": "Validation Error",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/HTTPValidationError"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "HTTPValidationError": {
+          "properties": {
+            "detail": {
+              "items": {
+                "$ref": "#/components/schemas/ValidationError"
+              },
+              "type": "array",
+              "title": "Detail"
+            }
+          },
+          "type": "object",
+          "title": "HTTPValidationError"
+        },
+        "TodoItemCreate": {
+          "properties": {
+            "label": {
+              "type": "string",
+              "title": "Label"
+            },
+            "is_done": {
+              "type": "boolean",
+              "title": "Is Done",
+              "default": false
+            }
+          },
+          "type": "object",
+          "required": [
+            "label"
+          ],
+          "title": "TodoItemCreate"
+        },
+        "TodoItemRead": {
+          "properties": {
+            "label": {
+              "type": "string",
+              "title": "Label"
+            },
+            "is_done": {
+              "type": "boolean",
+              "title": "Is Done"
+            },
+            "id": {
+              "type": "integer",
+              "title": "Id"
+            }
+          },
+          "type": "object",
+          "required": [
+            "label",
+            "is_done",
+            "id"
+          ],
+          "title": "TodoItemRead"
+        },
+        "TodoItemUpdate": {
+          "properties": {
+            "label": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Label"
+            },
+            "is_done": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Is Done"
+            }
+          },
+          "type": "object",
+          "title": "TodoItemUpdate"
+        },
+        "TodoUserList": {
+          "properties": {
+            "users": {
+              "items": {
+                "$ref": "#/components/schemas/TodoUserRead"
+              },
+              "type": "array",
+              "title": "Users"
+            }
+          },
+          "type": "object",
+          "required": [
+            "users"
+          ],
+          "title": "TodoUserList"
+        },
+        "TodoUserRead": {
+          "properties": {
+            "name": {
+              "type": "string",
+              "title": "Name"
+            },
+            "id": {
+              "type": "integer",
+              "title": "Id"
+            }
+          },
+          "type": "object",
+          "required": [
+            "name",
+            "id"
+          ],
+          "title": "TodoUserRead"
+        },
+        "TodoUserReadWithItems": {
+          "properties": {
+            "name": {
+              "type": "string",
+              "title": "Name"
+            },
+            "todos": {
+              "items": {
+                "$ref": "#/components/schemas/TodoItemRead"
+              },
+              "type": "array",
+              "title": "Todos"
+            }
+          },
+          "type": "object",
+          "required": [
+            "name",
+            "todos"
+          ],
+          "title": "TodoUserReadWithItems"
+        },
+        "ValidationError": {
+          "properties": {
+            "loc": {
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "integer"
+                  }
+                ]
+              },
+              "type": "array",
+              "title": "Location"
+            },
+            "msg": {
+              "type": "string",
+              "title": "Message"
+            },
+            "type": {
+              "type": "string",
+              "title": "Error Type"
+            }
+          },
+          "type": "object",
+          "required": [
+            "loc",
+            "msg",
+            "type"
+          ],
+          "title": "ValidationError"
+        }
+      }
+    },
+    "tags": [
+      {
+        "name": "User operations",
+        "description": "Operations on Users."
+      },
+      {
+        "name": "Todo operations",
+        "description": "Operations on Todos."
+      }
+    ]
+  }
