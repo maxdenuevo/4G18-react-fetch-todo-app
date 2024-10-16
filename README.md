@@ -31,17 +31,10 @@ Advanced exercise. Enhancement of the To-Do list app with HTML, CSS, React, and 
 - API integration functions for data management
 - Error handling for API interactions
 
-This exercise is part of the complete 4Geeks Academy Full Stack course:
-
-- [![4Geeks Academy](https://img.shields.io/badge/4Geeks%20Academy-blue.svg)](https://4geeks.com/interactive-coding-tutorial/todo-list)
-
-### Getting Started
-
-1. Clone the repository
-2. Install dependencies with `npm install`
-3. Replace `'your_username'` in `App.js` with your actual username for the API
-4. Run the app with `npm start`
-
 ### API Documentation
 
 Access the [TODO-list API documentation](https://playground.4geeks.com/todo/docs) for detailed information on available endpoints and request/response formats.
+
+This exercise is part of the complete 4Geeks Academy Full Stack course:
+
+[![4Geeks Academy](https://img.shields.io/badge/4Geeks%20Academy-blue.svg)](https://4geeks.com/interactive-coding-tutorial/todo-list)
